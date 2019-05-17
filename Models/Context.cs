@@ -10,6 +10,8 @@ namespace ComputerHardware.Models
         public DbSet<Socket> Sockets {get;set;}
         public DbSet<CPU> CPUs {get;set;}
         public DbSet<Manufacturer> Manufacturers {get;set;}
+        public DbSet<Chipset> Chipsets {get;set;}
+        public DbSet<CPUDetail> CPUDetails {get;set;}
 
         protected override void OnModelCreating(ModelBuilder ModelBuilder)
         {
@@ -22,7 +24,20 @@ namespace ComputerHardware.Models
 
             ModelBuilder.Entity<Socket>().HasData(
                 new Socket() {SocketId = 1, Name = "LGA-1151"},
-                new Socket() {SocketId = 2, Name = "LGA-1150"}
+                new Socket() {SocketId = 2, Name = "LGA-1150"},
+                new Socket() {SocketId = 3, Name = "TR4"},
+                new Socket() {SocketId = 4, Name = "SP3"},
+                new Socket() {SocketId = 5, Name = "AM4"},
+                new Socket() {SocketId = 6, Name = "LGA-2066"},
+                new Socket() {SocketId = 7, Name = "LGA-3647"},
+                new Socket() {SocketId = 8, Name = "AM1"},
+                new Socket() {SocketId = 9, Name = "FM2+"},
+                new Socket() {SocketId = 10, Name = "FM2"},
+                new Socket() {SocketId = 11, Name = "LGA-1356"},
+                new Socket() {SocketId = 12, Name = "AM3+"},
+                new Socket() {SocketId = 13, Name = "FS1"},
+                new Socket() {SocketId = 14, Name = "FM1"},
+                new Socket() {SocketId = 15, Name = "2011"}
             );
 
             ModelBuilder.Entity<Chipset>().HasData(
@@ -121,25 +136,3 @@ namespace ComputerHardware.Models
         }
     }
 }
-// public int CPUId {get;set;}
-//         public string Name {get;set;}
-//         public int CoreCount {get;set;}  
-
-//         public double BaseFrequency {get;set;}
-//         public double MaxFrequency {get;set;}
-//         public double L3Cache {get;set;}
-//         public int TDP {get;set;}
-//         public string Series {get;set;}
-//         public string Family {get;set;}
-//         public bool ForServer {get;set;}
-//         public bool ECC {get;set;}
-//         public bool SMT {get;set;}
-//         public string Lithography {get;set;}
-//         public string MaxMemory {get;set;}
-//         public string IntegratedGraphics {get;set;}
-//         public string MaxGPUClockRate {get;set;}
-//         public double Price {get;set;}
-//         public DateTime ReleaseDate {get;set;}
-
-//         public Socket Socket {get;set;}
-//         public Manufacturer Manufacturer {get;set;}

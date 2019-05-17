@@ -35,14 +35,17 @@ namespace ComputerHardware.Models
 
         [JsonIgnore]
         public int SocketId {get;set;}
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public Socket Socket {get;set;}
 
         [JsonIgnore]
         public int ManufacturerId {get;set;}
         public Manufacturer Manufacturer {get;set;}
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual CPUDetail CPUDetail {get;set;}
         [JsonIgnore]
         public int ChipsetId {get;set;}
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public Chipset Chipset {get;set;}
     }
 }

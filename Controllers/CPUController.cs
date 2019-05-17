@@ -13,11 +13,11 @@ namespace ComputerHardware.Controllers
     [ApiController]
     public class CPUController : ControllerBase
     {
-        private readonly ILoggerManager _logger;
+        private readonly ILoggerManager _Logger;
         private readonly Context _Context;
-        public CPUController(ILoggerManager logger, Context Context)
+        public CPUController(ILoggerManager Logger, Context Context)
         {
-            _logger = logger;
+            _Logger = Logger;
             _Context = Context;
         }
 
@@ -25,41 +25,30 @@ namespace ComputerHardware.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            _logger.LogInfo("Querying all CPUs!");
-            return Ok(_Context.CPUs.Include(c => c.Socket).Include(c => c.Manufacturer).Include(c => c.CPUDetail).Include(c => c.Chipset).ToList());
+            try
+            {
+                _Logger.LogInfo("Querying all CPUs!");
+                return Ok(_Context.CPUs.Include(c => c.Socket).Include(c => c.Manufacturer).Include(c => c.CPUDetail).Include(c => c.Chipset).ToList());
+            }
+            catch(Exception ex)
+            {
+                _Logger.LogError($"Something went wrong inside of Controller: CPU. Action: Get. With the error message: {ex.Message}");
+                return StatusCode(500, "Internal Server Error.");
+            }
         }
 
         // GET api/cpu/{id}
         [HttpGet("{id}")]
         public IActionResult GetCPUByID(int id)
         {
-            _logger.LogInfo($"Querying for the CPU with the id: {id}");
-            return Ok(_Context.CPUs.Where(c => c.CPUId == id).AsNoTracking().Include(c => c.Socket).Include(c => c.Manufacturer).Include(c => c.CPUDetail).Include(c => c.Chipset).FirstOrDefault());
-        }
-
-        // GET api/cpu/Manufacturer
-        [HttpGet("Manufacturer")]
-        public IActionResult GetManufacturer()
-        {
             try
             {
-                _logger.LogInfo("Querying all Manufacturers!");
-                var test = _Context.Manufacturers.Include(a => a.CPUs).ToList();
-                foreach(var i in test)
-                {
-                    Console.WriteLine(i.ManufacturerId);
-                    Console.WriteLine(i.Name);
-                    foreach(var t in i.CPUs)
-                    {
-                        Console.WriteLine(t.CPUId);
-                        Console.WriteLine(t.Name);
-                    }
-                }
-                return Ok(test);
+                _Logger.LogInfo($"Querying for the CPU with the id: {id}");
+                return Ok(_Context.CPUs.Where(c => c.CPUId == id).AsNoTracking().Include(c => c.Socket).Include(c => c.Manufacturer).Include(c => c.CPUDetail).Include(c => c.Chipset).FirstOrDefault());
             }
             catch(Exception ex)
             {
-                _logger.LogError($"Something went wrong inside of Controller: CPU. Action: GetManufacturer. With the error message: {ex.Message}");
+                _Logger.LogError($"Something went wrong inside of Controller: CPU. Action: GetCPUByID. With the error message: {ex.Message}");
                 return StatusCode(500, "Internal Server Error.");
             }
         }

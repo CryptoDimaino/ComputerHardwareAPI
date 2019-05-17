@@ -168,7 +168,7 @@ namespace ComputerHardware.Migrations
 
                     b.HasKey("CPUDetailId");
 
-                    b.ToTable("CPUDetail");
+                    b.ToTable("CPUDetails");
 
                     b.HasData(
                         new
@@ -252,7 +252,7 @@ namespace ComputerHardware.Migrations
 
                     b.HasKey("ChipsetId");
 
-                    b.ToTable("Chipset");
+                    b.ToTable("Chipsets");
 
                     b.HasData(
                         new
@@ -331,6 +331,71 @@ namespace ComputerHardware.Migrations
                         {
                             SocketId = 2,
                             Name = "LGA-1150"
+                        },
+                        new
+                        {
+                            SocketId = 3,
+                            Name = "TR4"
+                        },
+                        new
+                        {
+                            SocketId = 4,
+                            Name = "SP3"
+                        },
+                        new
+                        {
+                            SocketId = 5,
+                            Name = "AM4"
+                        },
+                        new
+                        {
+                            SocketId = 6,
+                            Name = "LGA-2066"
+                        },
+                        new
+                        {
+                            SocketId = 7,
+                            Name = "LGA-3647"
+                        },
+                        new
+                        {
+                            SocketId = 8,
+                            Name = "AM1"
+                        },
+                        new
+                        {
+                            SocketId = 9,
+                            Name = "FM2+"
+                        },
+                        new
+                        {
+                            SocketId = 10,
+                            Name = "FM2"
+                        },
+                        new
+                        {
+                            SocketId = 11,
+                            Name = "LGA-1356"
+                        },
+                        new
+                        {
+                            SocketId = 12,
+                            Name = "AM3+"
+                        },
+                        new
+                        {
+                            SocketId = 13,
+                            Name = "FS1"
+                        },
+                        new
+                        {
+                            SocketId = 14,
+                            Name = "FM1"
+                        },
+                        new
+                        {
+                            SocketId = 15,
+                            Name = "2011"
                         });
                 });
 
