@@ -37,7 +37,8 @@ namespace ComputerHardware.Models
                 new Socket() {SocketId = 12, Name = "AM3+"},
                 new Socket() {SocketId = 13, Name = "FS1"},
                 new Socket() {SocketId = 14, Name = "FM1"},
-                new Socket() {SocketId = 15, Name = "2011"}
+                new Socket() {SocketId = 15, Name = "2011"},
+                new Socket() {SocketId = 16, Name = "TR4"}
             );
 
             ModelBuilder.Entity<Chipset>().HasData(
@@ -65,6 +66,31 @@ namespace ComputerHardware.Models
                     IntelSmartSoundTechnology = true,
                     IntelPlatformTTTrustTechnology = true,
                     IntelBootGuard = true
+                },
+                new Chipset()
+                {
+                    ChipsetId = 2,
+                    Name = "X399",
+                    LaunchDate = "Q2'17",
+                    BusSpeed = "TBD",
+                    TDP = "TBD",
+                    Overclock = true,
+                    DIMMsPerChannel = "4",
+                    DisplaysSupported = "0",
+                    PCIExpressRevision = "3.0",
+                    MaxPCIExpressLanes = "8",
+                    NumberOfUSBPorts = 14,
+                    USBRevision = "3.1",
+                    MaxSata3Ports = 12,
+                    IntelOptaneMemorySupported = null,
+                    IntelvProPlatformEligibility = null,
+                    IntelMEFirmwareVersion = null,
+                    IntelHDAudioTechnology = null,
+                    IntelRapidStorageTechnology = null,
+                    IntelRapidStorageTechnologyForPCIStorage = null,
+                    IntelSmartSoundTechnology = null,
+                    IntelPlatformTTTrustTechnology = null,
+                    IntelBootGuard = null
                 }
             );
 
@@ -99,6 +125,37 @@ namespace ComputerHardware.Models
                     IntelTrustedExecutionTechnology = true,
                     ExecuteDisableBit = true,
                     IntelBootGuard = true
+                },
+                new CPUDetail()
+                {
+                    CPUDetailId = 2, 
+                    TJunction = "TR4",
+                    MaxCPUs = 1,
+                    PackageSizeX = "58.5",
+                    PackageSizeY = "75.4",
+                    IntelOptaneMemorySupported = null,
+                    IntelTurboBoostTechnology2 = null,
+                    IntelTurboBoostTechnology1 = null,
+                    IntelvProPlatformEligibility = null,
+                    IntelHyperThreadingTechnology = null,
+                    IntelVirtualizationTechnologyforDirectIO = null,
+                    VTxWithExtendedPageTables = null,
+                    IntelTSXNI = null,
+                    Intel64 = null,
+                    InstructionSet = "64-bit",
+                    IdleStates = null,
+                    EnhancedIntelSpeedStepTechnology = null,
+                    ThermalMonitoringTechnologies = null,
+                    IntelIdentityProtectionTechnology = null,
+                    StableImagePlatformProgram = null,
+                    IntelAESNewInstructions = null,
+                    SecureKey = null,
+                    IntelSoftwareGuardExtentions = null,
+                    IntelMemoryProtectionExtensions = null,
+                    IntelOSGuard = null,
+                    IntelTrustedExecutionTechnology = null,
+                    ExecuteDisableBit = null,
+                    IntelBootGuard = null
                 }
             );
 
@@ -130,6 +187,33 @@ namespace ComputerHardware.Models
                     SocketId = 1,
                     ManufacturerId = 1,
                     ChipsetId = 1
+                },
+                new CPU()
+                {
+                    CPUId = 2,
+                    Name = "1950X",
+                    CoreCount = 16,
+                    ThreadCount = 32,
+                    BaseFrequency = 3.40,
+                    MaxFrequency = 4.00,
+                    L3Cache = 32,
+                    TDP = 180,
+                    Series = "AMD Ryzen Threadripper",
+                    Family = "Zen",
+                    Type = "Desktop",
+                    ECC = true,
+                    SMT = true,
+                    Lithography = "14",
+                    MaxMemory = "128",
+                    MaxMemoryChannel = "4",
+                    IntegratedGraphics = null,
+                    MaxGPUClockRate = null,
+                    MSRPPrice = 999.00,
+                    PCIExpressLanes = 16,
+                    ReleaseDate = "Q2'17",
+                    SocketId = 16,
+                    ManufacturerId = 2,
+                    ChipsetId = 2
                 }
             );
 

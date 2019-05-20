@@ -19,6 +19,7 @@ using ComputerHardware.Models;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Newtonsoft.Json;
 using System.Buffers;
+using ComputerHardware.Repositories;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -40,6 +41,8 @@ namespace ComputerHardware
             services.AddDbContext<Context>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddSingleton<ILoggerManager, LoggerManager>();
+            //services.AddSingleton<IGenericRepository<>, GenericRepository>();
+            services.AddScoped<IChipsetRepository, ChipsetRepository>();
             services.AddMvc(options => 
             {
                 options.OutputFormatters.Clear();

@@ -52,5 +52,21 @@ namespace ComputerHardware.Controllers
                 return StatusCode(500, "Internal Server Error.");
             }
         }
+
+        // GET api/cpu/{name}
+        [HttpGet("name/{name}")]
+        public IActionResult GetCPUByName(string Name)
+        {
+            try
+            {
+                _Logger.LogInfo($"Querying for the CPU with the name: {Name}");
+                return Ok(_Context.CPUs.Where(c => c.Name == Name).AsNoTracking().Include(c => c.Socket).Include(c => c.Manufacturer).Include(c => c.CPUDetail).Include(c => c.Chipset).FirstOrDefault());
+            }
+            catch(Exception ex)
+            {
+                _Logger.LogError($"Something went wrong inside of Controller: CPU. Action: GetCPUByID. With the error message: {ex.Message}");
+                return StatusCode(500, "Internal Server Error.");
+            }
+        }
     }
 }

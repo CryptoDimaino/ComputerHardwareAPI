@@ -105,6 +105,31 @@ namespace ComputerHardware.Migrations
                             TDP = 95,
                             ThreadCount = 16,
                             Type = "Desktop"
+                        },
+                        new
+                        {
+                            CPUId = 2,
+                            BaseFrequency = 3.3999999999999999,
+                            ChipsetId = 2,
+                            CoreCount = 16,
+                            ECC = true,
+                            Family = "Zen",
+                            L3Cache = 32.0,
+                            Lithography = "14",
+                            MSRPPrice = 999.0,
+                            ManufacturerId = 2,
+                            MaxFrequency = 4.0,
+                            MaxMemory = "128",
+                            MaxMemoryChannel = "4",
+                            Name = "1950X",
+                            PCIExpressLanes = 16.0,
+                            ReleaseDate = "Q2'17",
+                            SMT = true,
+                            Series = "AMD Ryzen Threadripper",
+                            SocketId = 16,
+                            TDP = 180,
+                            ThreadCount = 32,
+                            Type = "Desktop"
                         });
                 });
 
@@ -200,6 +225,15 @@ namespace ComputerHardware.Migrations
                             TJunction = "LGA-1151",
                             ThermalMonitoringTechnologies = true,
                             VTxWithExtendedPageTables = true
+                        },
+                        new
+                        {
+                            CPUDetailId = 2,
+                            InstructionSet = "64-bit",
+                            MaxCPUs = 1,
+                            PackageSizeX = "58.5",
+                            PackageSizeY = "75.4",
+                            TJunction = "TR4"
                         });
                 });
 
@@ -278,6 +312,22 @@ namespace ComputerHardware.Migrations
                             Overclock = true,
                             PCIExpressRevision = "3.0",
                             TDP = "6",
+                            USBRevision = "3.1"
+                        },
+                        new
+                        {
+                            ChipsetId = 2,
+                            BusSpeed = "TBD",
+                            DIMMsPerChannel = "4",
+                            DisplaysSupported = "0",
+                            LaunchDate = "Q2'17",
+                            MaxPCIExpressLanes = "8",
+                            MaxSata3Ports = 12,
+                            Name = "X399",
+                            NumberOfUSBPorts = 14,
+                            Overclock = true,
+                            PCIExpressRevision = "3.0",
+                            TDP = "TBD",
                             USBRevision = "3.1"
                         });
                 });
@@ -396,6 +446,11 @@ namespace ComputerHardware.Migrations
                         {
                             SocketId = 15,
                             Name = "2011"
+                        },
+                        new
+                        {
+                            SocketId = 16,
+                            Name = "TR4"
                         });
                 });
 

@@ -167,7 +167,11 @@ namespace ComputerHardware.Migrations
             migrationBuilder.InsertData(
                 table: "Chipsets",
                 columns: new[] { "ChipsetId", "BusSpeed", "DIMMsPerChannel", "DisplaysSupported", "IntelBootGuard", "IntelHDAudioTechnology", "IntelMEFirmwareVersion", "IntelOptaneMemorySupported", "IntelPlatformTTTrustTechnology", "IntelRapidStorageTechnology", "IntelRapidStorageTechnologyForPCIStorage", "IntelSmartSoundTechnology", "IntelvProPlatformEligibility", "LaunchDate", "MaxPCIExpressLanes", "MaxSata3Ports", "Name", "NumberOfUSBPorts", "Overclock", "PCIExpressRevision", "TDP", "USBRevision" },
-                values: new object[] { 1, "8", "2", "3", true, true, "12", true, true, true, true, true, false, "Q4'18", "24", 6, "Z390", 14, true, "3.0", "6", "3.1" });
+                values: new object[,]
+                {
+                    { 1, "8", "2", "3", true, true, "12", true, true, true, true, true, false, "Q4'18", "24", 6, "Z390", 14, true, "3.0", "6", "3.1" },
+                    { 2, "TBD", "4", "0", null, null, null, null, null, null, null, null, null, "Q2'17", "8", 12, "X399", 14, true, "3.0", "TBD", "3.1" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Manufacturers",
@@ -183,6 +187,7 @@ namespace ComputerHardware.Migrations
                 columns: new[] { "SocketId", "Name" },
                 values: new object[,]
                 {
+                    { 14, "FM1" },
                     { 13, "FS1" },
                     { 12, "AM3+" },
                     { 11, "LGA-1356" },
@@ -190,14 +195,14 @@ namespace ComputerHardware.Migrations
                     { 9, "FM2+" },
                     { 8, "AM1" },
                     { 6, "LGA-2066" },
-                    { 14, "FM1" },
+                    { 15, "2011" },
                     { 5, "AM4" },
                     { 4, "SP3" },
                     { 3, "TR4" },
                     { 2, "LGA-1150" },
                     { 1, "LGA-1151" },
                     { 7, "LGA-3647" },
-                    { 15, "2011" }
+                    { 16, "TR4" }
                 });
 
             migrationBuilder.InsertData(
@@ -206,9 +211,19 @@ namespace ComputerHardware.Migrations
                 values: new object[] { 1, 3.6000000000000001, 1, 8, false, "Coffee Lake", "", 16.0, "14", 500.0, 1, 5.0, "", "128", "2", "9900K", 16.0, "Q4'18", true, "Intel Core i9", 1, 95, 16, "Desktop" });
 
             migrationBuilder.InsertData(
+                table: "CPUs",
+                columns: new[] { "CPUId", "BaseFrequency", "ChipsetId", "CoreCount", "ECC", "Family", "IntegratedGraphics", "L3Cache", "Lithography", "MSRPPrice", "ManufacturerId", "MaxFrequency", "MaxGPUClockRate", "MaxMemory", "MaxMemoryChannel", "Name", "PCIExpressLanes", "ReleaseDate", "SMT", "Series", "SocketId", "TDP", "ThreadCount", "Type" },
+                values: new object[] { 2, 3.3999999999999999, 2, 16, true, "Zen", null, 32.0, "14", 999.0, 2, 4.0, null, "128", "4", "1950X", 16.0, "Q2'17", true, "AMD Ryzen Threadripper", 16, 180, 32, "Desktop" });
+
+            migrationBuilder.InsertData(
                 table: "CPUDetails",
                 columns: new[] { "CPUDetailId", "EnhancedIntelSpeedStepTechnology", "ExecuteDisableBit", "IdleStates", "InstructionSet", "Intel64", "IntelAESNewInstructions", "IntelBootGuard", "IntelHyperThreadingTechnology", "IntelIdentityProtectionTechnology", "IntelMemoryProtectionExtensions", "IntelOSGuard", "IntelOptaneMemorySupported", "IntelSoftwareGuardExtentions", "IntelTSXNI", "IntelTrustedExecutionTechnology", "IntelTurboBoostTechnology1", "IntelTurboBoostTechnology2", "IntelVirtualizationTechnologyforDirectIO", "IntelvProPlatformEligibility", "MaxCPUs", "PackageSizeX", "PackageSizeY", "SecureKey", "StableImagePlatformProgram", "TJunction", "ThermalMonitoringTechnologies", "VTxWithExtendedPageTables" },
                 values: new object[] { 1, true, true, true, "64-bit", true, true, true, true, true, true, true, true, true, true, true, null, true, true, true, 1, "37.5", "37.5", true, true, "LGA-1151", true, true });
+
+            migrationBuilder.InsertData(
+                table: "CPUDetails",
+                columns: new[] { "CPUDetailId", "EnhancedIntelSpeedStepTechnology", "ExecuteDisableBit", "IdleStates", "InstructionSet", "Intel64", "IntelAESNewInstructions", "IntelBootGuard", "IntelHyperThreadingTechnology", "IntelIdentityProtectionTechnology", "IntelMemoryProtectionExtensions", "IntelOSGuard", "IntelOptaneMemorySupported", "IntelSoftwareGuardExtentions", "IntelTSXNI", "IntelTrustedExecutionTechnology", "IntelTurboBoostTechnology1", "IntelTurboBoostTechnology2", "IntelVirtualizationTechnologyforDirectIO", "IntelvProPlatformEligibility", "MaxCPUs", "PackageSizeX", "PackageSizeY", "SecureKey", "StableImagePlatformProgram", "TJunction", "ThermalMonitoringTechnologies", "VTxWithExtendedPageTables" },
+                values: new object[] { 2, null, null, null, "64-bit", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, "58.5", "75.4", null, null, "TR4", null, null });
 
             migrationBuilder.CreateIndex(
                 name: "IX_CPUs_ChipsetId",
