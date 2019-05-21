@@ -9,13 +9,13 @@ using ComputerHardware.Models;
 using Microsoft.EntityFrameworkCore;
 using ComputerHardware.Repositories;
 
-namespace ComputerHardware.Contracts
+namespace ComputerHardware.Helpers
 {
-    public interface ILoggerManager
+    public static class SomeHelper
     {
-        void LogInfo(string message);
-        void LogWarn(string message);
-        void LogDebug(string message);
-        void LogError(string message);
+        public static string LogInfos(ControllerContext cc)
+        {
+            return $"Controller: {cc.RouteData.Values["controller"].ToString()} - Method: {cc.RouteData.Values["action"].ToString()} -";
+        }
     }
 }

@@ -42,7 +42,7 @@ namespace ComputerHardware
 
             services.AddSingleton<ILoggerManager, LoggerManager>();
             //services.AddSingleton<IGenericRepository<>, GenericRepository>();
-            services.AddScoped<IChipsetRepository, ChipsetRepository>();
+            services.AddTransient<IChipsetRepository, ChipsetRepository>();
             services.AddMvc(options => 
             {
                 options.OutputFormatters.Clear();
