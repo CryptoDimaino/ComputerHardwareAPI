@@ -18,7 +18,7 @@ namespace ComputerHardware.Repositories
 
         }
 
-        public async Task<IEnumerable<Chipset>> GetAllChipsetAsync()
+        public async Task<IEnumerable<Chipset>> GetAllChipsetsAsync()
         {
             return await GetAll().ToListAsync();
         }
@@ -36,7 +36,6 @@ namespace ComputerHardware.Repositories
 
         public async Task UpdateChipsetAsync(Chipset ChipsetToUpdate)
         {
-            //ChipsetToUpdate.SaveAsync
             Update(ChipsetToUpdate);
             await SaveAsync();
         }

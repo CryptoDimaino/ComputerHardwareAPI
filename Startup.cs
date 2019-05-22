@@ -43,6 +43,9 @@ namespace ComputerHardware
             services.AddSingleton<ILoggerManager, LoggerManager>();
             //services.AddSingleton<IGenericRepository<>, GenericRepository>();
             services.AddTransient<IChipsetRepository, ChipsetRepository>();
+            services.AddTransient<ICPURepository, CPURepository>();
+            services.AddTransient<ISocketRepository, SocketRepository>();
+            services.AddTransient<IManufacturerRepository, ManufacturerRepository>();
             services.AddMvc(options => 
             {
                 options.OutputFormatters.Clear();

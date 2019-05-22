@@ -15,20 +15,23 @@ namespace ComputerHardware.Controllers
     {
         private readonly ILoggerManager _Logger;
         private readonly Context _Context;
-        public CPUController(ILoggerManager Logger, Context Context)
+        private readonly ICPURepository _ICPURepository;
+        public CPUController(ILoggerManager Logger, Context Context, ICPURepository ICPURepository)
         {
             _Logger = Logger;
             _Context = Context;
+            _ICPURepository = ICPURepository;
         }
 
         // GET api/cpu
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             try
             {
                 _Logger.LogInfo("Querying all CPUs!");
-                return Ok(_Context.CPUs.Include(c => c.Socket).Include(c => c.Manufacturer).Include(c => c.CPUDetail).Include(c => c.Chipset).ToList());
+                return Ok(await _ICPURepository.GetAllCPUsAsync());
+                //return Ok(_Context.CPUs.Include(c => c.Socket).Include(c => c.Manufacturer).Include(c => c.CPUDetail).Include(c => c.Chipset).ToList());
             }
             catch(Exception ex)
             {

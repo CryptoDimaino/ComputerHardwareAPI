@@ -61,6 +61,10 @@ namespace ComputerHardware.Models
         public bool? ExecuteDisableBit {get;set;}
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public bool? IntelBootGuard {get;set;}
+        [JsonIgnore]
+        public DateTime CreatedAt {get;set;}
+        [JsonIgnore]
+        public DateTime UpdatedAt {get;set;}
 
 
         public virtual CPU CPU {get;set;}

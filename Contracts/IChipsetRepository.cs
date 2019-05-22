@@ -12,7 +12,7 @@ namespace ComputerHardware.Contracts
 {
     public interface IChipsetRepository : IGenericRepository<Chipset>
     {
-        Task<IEnumerable<Chipset>> GetAllChipsetAsync();
+        Task<IEnumerable<Chipset>> GetAllChipsetsAsync();
         Task<Chipset> GetChipsetByIDAsync(int ChipsetId);
         Task CreateChipsetAsync(Chipset NewChipset);
         Task UpdateChipsetAsync(Chipset ChipsetToUpdate);

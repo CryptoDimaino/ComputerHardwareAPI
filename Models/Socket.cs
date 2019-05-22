@@ -14,6 +14,10 @@ namespace ComputerHardware.Models
         public int SocketId {get;set;}
         public string Name {get;set;}
         [JsonIgnore]
+        public DateTime CreatedAt {get;set;}
+        [JsonIgnore]
+        public DateTime UpdatedAt {get;set;}
+        [JsonIgnore]
         public List<CPU> CPUs {get;set;}
     }
 }

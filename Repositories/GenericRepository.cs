@@ -21,12 +21,12 @@ namespace ComputerHardware.Repositories
 
         public IQueryable<T> GetAll()
         {
-            return this._Context.Set<T>();
+            return this._Context.Set<T>().AsNoTracking();
         }
 
         public IQueryable<T> FindByCondition(Expression<Func<T, bool>> Expression)
         {
-            return this._Context.Set<T>().Where(Expression);
+            return this._Context.Set<T>().Where(Expression).AsNoTracking();
         }
 
         public void Create(T Entity)

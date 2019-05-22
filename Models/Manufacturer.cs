@@ -14,6 +14,10 @@ namespace ComputerHardware.Models
         public int ManufacturerId {get;set;}
         public string Name {get;set;}
         public string URL {get;set;}
+        [JsonIgnore]
+        public DateTime CreatedAt {get;set;}
+        [JsonIgnore]
+        public DateTime UpdatedAt {get;set;}
         //[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public List<CPU> CPUs {get;set;}
         public bool ShouldSerializeCPUs()

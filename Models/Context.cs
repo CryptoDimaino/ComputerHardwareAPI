@@ -23,22 +23,22 @@ namespace ComputerHardware.Models
             );
 
             ModelBuilder.Entity<Socket>().HasData(
-                new Socket() {SocketId = 1, Name = "LGA-1151"},
-                new Socket() {SocketId = 2, Name = "LGA-1150"},
-                new Socket() {SocketId = 3, Name = "TR4"},
-                new Socket() {SocketId = 4, Name = "SP3"},
-                new Socket() {SocketId = 5, Name = "AM4"},
-                new Socket() {SocketId = 6, Name = "LGA-2066"},
-                new Socket() {SocketId = 7, Name = "LGA-3647"},
-                new Socket() {SocketId = 8, Name = "AM1"},
-                new Socket() {SocketId = 9, Name = "FM2+"},
-                new Socket() {SocketId = 10, Name = "FM2"},
-                new Socket() {SocketId = 11, Name = "LGA-1356"},
-                new Socket() {SocketId = 12, Name = "AM3+"},
-                new Socket() {SocketId = 13, Name = "FS1"},
-                new Socket() {SocketId = 14, Name = "FM1"},
-                new Socket() {SocketId = 15, Name = "2011"},
-                new Socket() {SocketId = 16, Name = "TR4"}
+                new Socket() {SocketId = 1, Name = "LGA-1151", CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now},
+                new Socket() {SocketId = 2, Name = "LGA-1150", CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now},
+                new Socket() {SocketId = 3, Name = "TR4", CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now},
+                new Socket() {SocketId = 4, Name = "SP3", CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now},
+                new Socket() {SocketId = 5, Name = "AM4", CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now},
+                new Socket() {SocketId = 6, Name = "LGA-2066", CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now},
+                new Socket() {SocketId = 7, Name = "LGA-3647", CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now},
+                new Socket() {SocketId = 8, Name = "AM1", CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now},
+                new Socket() {SocketId = 9, Name = "FM2+", CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now},
+                new Socket() {SocketId = 10, Name = "FM2", CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now},
+                new Socket() {SocketId = 11, Name = "LGA-1356", CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now},
+                new Socket() {SocketId = 12, Name = "AM3+", CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now},
+                new Socket() {SocketId = 13, Name = "FS1", CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now},
+                new Socket() {SocketId = 14, Name = "FM1", CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now},
+                new Socket() {SocketId = 15, Name = "2011", CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now},
+                new Socket() {SocketId = 16, Name = "TR4", CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now}
             );
 
             ModelBuilder.Entity<Chipset>().HasData(
@@ -65,7 +65,9 @@ namespace ComputerHardware.Models
                     IntelRapidStorageTechnologyForPCIStorage = true,
                     IntelSmartSoundTechnology = true,
                     IntelPlatformTTTrustTechnology = true,
-                    IntelBootGuard = true
+                    IntelBootGuard = true,
+                    CreatedAt = DateTime.Now, 
+                    UpdatedAt = DateTime.Now
                 },
                 new Chipset()
                 {
@@ -90,7 +92,9 @@ namespace ComputerHardware.Models
                     IntelRapidStorageTechnologyForPCIStorage = null,
                     IntelSmartSoundTechnology = null,
                     IntelPlatformTTTrustTechnology = null,
-                    IntelBootGuard = null
+                    IntelBootGuard = null,
+                    CreatedAt = DateTime.Now, 
+                    UpdatedAt = DateTime.Now
                 }
             );
 
@@ -124,7 +128,9 @@ namespace ComputerHardware.Models
                     IntelOSGuard = true,
                     IntelTrustedExecutionTechnology = true,
                     ExecuteDisableBit = true,
-                    IntelBootGuard = true
+                    IntelBootGuard = true,
+                    CreatedAt = DateTime.Now, 
+                    UpdatedAt = DateTime.Now
                 },
                 new CPUDetail()
                 {
@@ -155,7 +161,9 @@ namespace ComputerHardware.Models
                     IntelOSGuard = null,
                     IntelTrustedExecutionTechnology = null,
                     ExecuteDisableBit = null,
-                    IntelBootGuard = null
+                    IntelBootGuard = null,
+                    CreatedAt = DateTime.Now, 
+                    UpdatedAt = DateTime.Now
                 }
             );
 
@@ -186,7 +194,9 @@ namespace ComputerHardware.Models
                     ReleaseDate = "Q4'18",
                     SocketId = 1,
                     ManufacturerId = 1,
-                    ChipsetId = 1
+                    ChipsetId = 1,
+                    CreatedAt = DateTime.Now, 
+                    UpdatedAt = DateTime.Now
                 },
                 new CPU()
                 {
@@ -213,7 +223,9 @@ namespace ComputerHardware.Models
                     ReleaseDate = "Q2'17",
                     SocketId = 16,
                     ManufacturerId = 2,
-                    ChipsetId = 2
+                    ChipsetId = 2,
+                    CreatedAt = DateTime.Now, 
+                    UpdatedAt = DateTime.Now
                 }
             );
 

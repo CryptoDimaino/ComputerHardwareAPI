@@ -33,7 +33,7 @@ namespace ComputerHardware.Controllers
             try
             {
                 _Logger.LogInfo($"{SomeHelper.LogInfos(ControllerContext)} Querying all Chipsets!");
-                return Ok(await _IChipsetRepository.GetAllChipsetAsync());
+                return Ok(await _IChipsetRepository.GetAllChipsetsAsync());
             }
             catch(Exception ex)
             {
@@ -50,30 +50,6 @@ namespace ComputerHardware.Controllers
             {
                 _Logger.LogInfo($"{SomeHelper.LogInfos(ControllerContext)} Querying Chipset with the id: {id}");
                 return Ok(await _IChipsetRepository.GetChipsetByIDAsync(id));
-            }
-            catch(Exception ex)
-            {
-                _Logger.LogError($"{SomeHelper.LogInfos(ControllerContext)} Error Message: {ex.Message}");
-                return StatusCode(500, "Internal Server Error.");
-            }
-        }
-
-        // DELETE api/Chipset/delete/id
-        [HttpDelete("delete/{id}")]
-        public async Task<IActionResult> DeleteChipset(int id)
-        {
-            _Logger.LogWarn($"Deleting a chipset will delete all CPU information under it and also delete all cpudetails.");
-            try
-            {
-                Chipset ChipsetToDelete = await _IChipsetRepository.GetChipsetByIDAsync(id);
-                if(ChipsetToDelete == null)
-                {
-                    _Logger.LogError($"{SomeHelper.LogInfos(ControllerContext)} Chipset with id: {id}, hasn't been found in db.");
-                    return NotFound();
-                }
-                _Logger.LogInfo($"{SomeHelper.LogInfos(ControllerContext)} Chipset with id: {id} has been deleted.");
-                await _IChipsetRepository.DeleteChipsetAsync(ChipsetToDelete);
-                return Ok(_IChipsetRepository.GetAllChipsetAsync());
             }
             catch(Exception ex)
             {
@@ -113,13 +89,62 @@ namespace ComputerHardware.Controllers
                 };
             try
             {
-                _Logger.LogInfo($"Controller: ChipsetController - Method: CreateNewChipset - Creating New Chipset: ChipsetId: {NewChipset.ChipsetId}, Name: {NewChipset.Name}");
+                _Logger.LogInfo($"{SomeHelper.LogInfos(ControllerContext)} Name: {NewChipset.Name}");
                 await _IChipsetRepository.CreateChipsetAsync(NewChipset);
-                return Ok(_IChipsetRepository.GetAllChipsetAsync());
+                return NoContent();
             }   
             catch(Exception ex)
             {
-                _Logger.LogError($"Controller: ChipsetController - Method: CreateNewChipset - Error Message: {ex.Message}");
+                _Logger.LogError($"{SomeHelper.LogInfos(ControllerContext)} Error Message: {ex.Message}");
+                return StatusCode(500, "Internal Server Error.");
+            }
+        }
+
+        // PUT api/chipset/{id}
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateChipset(int id)
+        {
+            try
+            {
+                Chipset ChipsetToUpdate = await _IChipsetRepository.GetChipsetByIDAsync(id);
+                if(ChipsetToUpdate == null)
+                {
+                    _Logger.LogError($"{SomeHelper.LogInfos(ControllerContext)} Error Message: Chipset with the id: {id} is not in the database.");
+                    return StatusCode(500, "Internal Server Error.");
+                }
+                _Logger.LogInfo($"{SomeHelper.LogInfos(ControllerContext)} Chipset with the id: {id} has been updated.");
+                
+                ChipsetToUpdate.UpdatedAt = DateTime.Now;
+                await _IChipsetRepository.UpdateChipsetAsync(ChipsetToUpdate);
+                return NoContent();
+            }
+            catch(Exception ex)
+            {
+                _Logger.LogError($"{SomeHelper.LogInfos(ControllerContext)} Error Message: {ex.Message}");
+                return StatusCode(500, "Internal Server Error.");
+            }
+        }
+
+        // DELETE api/Chipset/delete/id
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> DeleteChipset(int id)
+        {
+            _Logger.LogWarn($"Deleting a chipset will delete all CPU information under it and also delete all cpudetails.");
+            try
+            {
+                Chipset ChipsetToDelete = await _IChipsetRepository.GetChipsetByIDAsync(id);
+                if(ChipsetToDelete == null)
+                {
+                    _Logger.LogError($"{SomeHelper.LogInfos(ControllerContext)} Chipset with id: {id}, hasn't been found in db.");
+                    return NotFound();
+                }
+                _Logger.LogInfo($"{SomeHelper.LogInfos(ControllerContext)} Chipset with id: {id} has been deleted.");
+                await _IChipsetRepository.DeleteChipsetAsync(ChipsetToDelete);
+                return NoContent();
+            }
+            catch(Exception ex)
+            {
+                _Logger.LogError($"{SomeHelper.LogInfos(ControllerContext)} Error Message: {ex.Message}");
                 return StatusCode(500, "Internal Server Error.");
             }
         }

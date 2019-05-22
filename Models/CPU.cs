@@ -32,6 +32,10 @@ namespace ComputerHardware.Models
         public double MSRPPrice {get;set;}
         public double PCIExpressLanes {get;set;}
         public string ReleaseDate {get;set;}
+        [JsonIgnore]
+        public DateTime CreatedAt {get;set;}
+        [JsonIgnore]
+        public DateTime UpdatedAt {get;set;}
 
         [JsonIgnore]
         public int SocketId {get;set;}

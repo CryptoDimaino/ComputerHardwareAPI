@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ComputerHardware.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class InitialMigrtion : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,7 +34,9 @@ namespace ComputerHardware.Migrations
                     IntelRapidStorageTechnologyForPCIStorage = table.Column<bool>(nullable: true),
                     IntelSmartSoundTechnology = table.Column<bool>(nullable: true),
                     IntelPlatformTTTrustTechnology = table.Column<bool>(nullable: true),
-                    IntelBootGuard = table.Column<bool>(nullable: true)
+                    IntelBootGuard = table.Column<bool>(nullable: true),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedAt = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -47,7 +50,9 @@ namespace ComputerHardware.Migrations
                     ManufacturerId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
-                    URL = table.Column<string>(nullable: true)
+                    URL = table.Column<string>(nullable: true),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedAt = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -60,7 +65,9 @@ namespace ComputerHardware.Migrations
                 {
                     SocketId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedAt = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -93,6 +100,8 @@ namespace ComputerHardware.Migrations
                     MSRPPrice = table.Column<double>(nullable: false),
                     PCIExpressLanes = table.Column<double>(nullable: false),
                     ReleaseDate = table.Column<string>(nullable: true),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedAt = table.Column<DateTime>(nullable: false),
                     SocketId = table.Column<int>(nullable: false),
                     ManufacturerId = table.Column<int>(nullable: false),
                     ChipsetId = table.Column<int>(nullable: false)
@@ -151,7 +160,9 @@ namespace ComputerHardware.Migrations
                     IntelOSGuard = table.Column<bool>(nullable: true),
                     IntelTrustedExecutionTechnology = table.Column<bool>(nullable: true),
                     ExecuteDisableBit = table.Column<bool>(nullable: true),
-                    IntelBootGuard = table.Column<bool>(nullable: true)
+                    IntelBootGuard = table.Column<bool>(nullable: true),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedAt = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -166,64 +177,64 @@ namespace ComputerHardware.Migrations
 
             migrationBuilder.InsertData(
                 table: "Chipsets",
-                columns: new[] { "ChipsetId", "BusSpeed", "DIMMsPerChannel", "DisplaysSupported", "IntelBootGuard", "IntelHDAudioTechnology", "IntelMEFirmwareVersion", "IntelOptaneMemorySupported", "IntelPlatformTTTrustTechnology", "IntelRapidStorageTechnology", "IntelRapidStorageTechnologyForPCIStorage", "IntelSmartSoundTechnology", "IntelvProPlatformEligibility", "LaunchDate", "MaxPCIExpressLanes", "MaxSata3Ports", "Name", "NumberOfUSBPorts", "Overclock", "PCIExpressRevision", "TDP", "USBRevision" },
+                columns: new[] { "ChipsetId", "BusSpeed", "CreatedAt", "DIMMsPerChannel", "DisplaysSupported", "IntelBootGuard", "IntelHDAudioTechnology", "IntelMEFirmwareVersion", "IntelOptaneMemorySupported", "IntelPlatformTTTrustTechnology", "IntelRapidStorageTechnology", "IntelRapidStorageTechnologyForPCIStorage", "IntelSmartSoundTechnology", "IntelvProPlatformEligibility", "LaunchDate", "MaxPCIExpressLanes", "MaxSata3Ports", "Name", "NumberOfUSBPorts", "Overclock", "PCIExpressRevision", "TDP", "USBRevision", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { 1, "8", "2", "3", true, true, "12", true, true, true, true, true, false, "Q4'18", "24", 6, "Z390", 14, true, "3.0", "6", "3.1" },
-                    { 2, "TBD", "4", "0", null, null, null, null, null, null, null, null, null, "Q2'17", "8", 12, "X399", 14, true, "3.0", "TBD", "3.1" }
+                    { 1, "8", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(8979), "2", "3", true, true, "12", true, true, true, true, true, false, "Q4'18", "24", 6, "Z390", 14, true, "3.0", "6", "3.1", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(9315) },
+                    { 2, "TBD", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(9678), "4", "0", null, null, null, null, null, null, null, null, null, "Q2'17", "8", 12, "X399", 14, true, "3.0", "TBD", "3.1", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(9691) }
                 });
 
             migrationBuilder.InsertData(
                 table: "Manufacturers",
-                columns: new[] { "ManufacturerId", "Name", "URL" },
+                columns: new[] { "ManufacturerId", "CreatedAt", "Name", "URL", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { 1, "Intel Corporation", "https://www.intel.com/content/www/us/en/homepage.html" },
-                    { 2, "Advanced Micro Devices, Inc", "https://www.amd.com/en" }
+                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Intel Corporation", "https://www.intel.com/content/www/us/en/homepage.html", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Advanced Micro Devices, Inc", "https://www.amd.com/en", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
                 table: "Sockets",
-                columns: new[] { "SocketId", "Name" },
+                columns: new[] { "SocketId", "CreatedAt", "Name", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { 14, "FM1" },
-                    { 13, "FS1" },
-                    { 12, "AM3+" },
-                    { 11, "LGA-1356" },
-                    { 10, "FM2" },
-                    { 9, "FM2+" },
-                    { 8, "AM1" },
-                    { 6, "LGA-2066" },
-                    { 15, "2011" },
-                    { 5, "AM4" },
-                    { 4, "SP3" },
-                    { 3, "TR4" },
-                    { 2, "LGA-1150" },
-                    { 1, "LGA-1151" },
-                    { 7, "LGA-3647" },
-                    { 16, "TR4" }
+                    { 14, new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1986), "FM1", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1989) },
+                    { 13, new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1981), "FS1", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1983) },
+                    { 12, new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1976), "AM3+", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1978) },
+                    { 11, new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1971), "LGA-1356", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1973) },
+                    { 10, new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1965), "FM2", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1968) },
+                    { 9, new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1960), "FM2+", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1963) },
+                    { 8, new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1955), "AM1", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1957) },
+                    { 6, new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1944), "LGA-2066", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1947) },
+                    { 15, new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1991), "2011", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1994) },
+                    { 5, new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1939), "AM4", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1942) },
+                    { 4, new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1933), "SP3", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1936) },
+                    { 3, new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1927), "TR4", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1930) },
+                    { 2, new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1907), "LGA-1150", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1921) },
+                    { 1, new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1192), "LGA-1151", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1571) },
+                    { 7, new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1950), "LGA-3647", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1952) },
+                    { 16, new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1997), "TR4", new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1999) }
                 });
 
             migrationBuilder.InsertData(
                 table: "CPUs",
-                columns: new[] { "CPUId", "BaseFrequency", "ChipsetId", "CoreCount", "ECC", "Family", "IntegratedGraphics", "L3Cache", "Lithography", "MSRPPrice", "ManufacturerId", "MaxFrequency", "MaxGPUClockRate", "MaxMemory", "MaxMemoryChannel", "Name", "PCIExpressLanes", "ReleaseDate", "SMT", "Series", "SocketId", "TDP", "ThreadCount", "Type" },
-                values: new object[] { 1, 3.6000000000000001, 1, 8, false, "Coffee Lake", "", 16.0, "14", 500.0, 1, 5.0, "", "128", "2", "9900K", 16.0, "Q4'18", true, "Intel Core i9", 1, 95, 16, "Desktop" });
+                columns: new[] { "CPUId", "BaseFrequency", "ChipsetId", "CoreCount", "CreatedAt", "ECC", "Family", "IntegratedGraphics", "L3Cache", "Lithography", "MSRPPrice", "ManufacturerId", "MaxFrequency", "MaxGPUClockRate", "MaxMemory", "MaxMemoryChannel", "Name", "PCIExpressLanes", "ReleaseDate", "SMT", "Series", "SocketId", "TDP", "ThreadCount", "Type", "UpdatedAt" },
+                values: new object[] { 1, 3.6000000000000001, 1, 8, new DateTime(2019, 5, 22, 16, 12, 20, 612, DateTimeKind.Local).AddTicks(6087), false, "Coffee Lake", "", 16.0, "14", 500.0, 1, 5.0, "", "128", "2", "9900K", 16.0, "Q4'18", true, "Intel Core i9", 1, 95, 16, "Desktop", new DateTime(2019, 5, 22, 16, 12, 20, 612, DateTimeKind.Local).AddTicks(6399) });
 
             migrationBuilder.InsertData(
                 table: "CPUs",
-                columns: new[] { "CPUId", "BaseFrequency", "ChipsetId", "CoreCount", "ECC", "Family", "IntegratedGraphics", "L3Cache", "Lithography", "MSRPPrice", "ManufacturerId", "MaxFrequency", "MaxGPUClockRate", "MaxMemory", "MaxMemoryChannel", "Name", "PCIExpressLanes", "ReleaseDate", "SMT", "Series", "SocketId", "TDP", "ThreadCount", "Type" },
-                values: new object[] { 2, 3.3999999999999999, 2, 16, true, "Zen", null, 32.0, "14", 999.0, 2, 4.0, null, "128", "4", "1950X", 16.0, "Q2'17", true, "AMD Ryzen Threadripper", 16, 180, 32, "Desktop" });
+                columns: new[] { "CPUId", "BaseFrequency", "ChipsetId", "CoreCount", "CreatedAt", "ECC", "Family", "IntegratedGraphics", "L3Cache", "Lithography", "MSRPPrice", "ManufacturerId", "MaxFrequency", "MaxGPUClockRate", "MaxMemory", "MaxMemoryChannel", "Name", "PCIExpressLanes", "ReleaseDate", "SMT", "Series", "SocketId", "TDP", "ThreadCount", "Type", "UpdatedAt" },
+                values: new object[] { 2, 3.3999999999999999, 2, 16, new DateTime(2019, 5, 22, 16, 12, 20, 612, DateTimeKind.Local).AddTicks(6768), true, "Zen", null, 32.0, "14", 999.0, 2, 4.0, null, "128", "4", "1950X", 16.0, "Q2'17", true, "AMD Ryzen Threadripper", 16, 180, 32, "Desktop", new DateTime(2019, 5, 22, 16, 12, 20, 612, DateTimeKind.Local).AddTicks(6781) });
 
             migrationBuilder.InsertData(
                 table: "CPUDetails",
-                columns: new[] { "CPUDetailId", "EnhancedIntelSpeedStepTechnology", "ExecuteDisableBit", "IdleStates", "InstructionSet", "Intel64", "IntelAESNewInstructions", "IntelBootGuard", "IntelHyperThreadingTechnology", "IntelIdentityProtectionTechnology", "IntelMemoryProtectionExtensions", "IntelOSGuard", "IntelOptaneMemorySupported", "IntelSoftwareGuardExtentions", "IntelTSXNI", "IntelTrustedExecutionTechnology", "IntelTurboBoostTechnology1", "IntelTurboBoostTechnology2", "IntelVirtualizationTechnologyforDirectIO", "IntelvProPlatformEligibility", "MaxCPUs", "PackageSizeX", "PackageSizeY", "SecureKey", "StableImagePlatformProgram", "TJunction", "ThermalMonitoringTechnologies", "VTxWithExtendedPageTables" },
-                values: new object[] { 1, true, true, true, "64-bit", true, true, true, true, true, true, true, true, true, true, true, null, true, true, true, 1, "37.5", "37.5", true, true, "LGA-1151", true, true });
+                columns: new[] { "CPUDetailId", "CreatedAt", "EnhancedIntelSpeedStepTechnology", "ExecuteDisableBit", "IdleStates", "InstructionSet", "Intel64", "IntelAESNewInstructions", "IntelBootGuard", "IntelHyperThreadingTechnology", "IntelIdentityProtectionTechnology", "IntelMemoryProtectionExtensions", "IntelOSGuard", "IntelOptaneMemorySupported", "IntelSoftwareGuardExtentions", "IntelTSXNI", "IntelTrustedExecutionTechnology", "IntelTurboBoostTechnology1", "IntelTurboBoostTechnology2", "IntelVirtualizationTechnologyforDirectIO", "IntelvProPlatformEligibility", "MaxCPUs", "PackageSizeX", "PackageSizeY", "SecureKey", "StableImagePlatformProgram", "TJunction", "ThermalMonitoringTechnologies", "UpdatedAt", "VTxWithExtendedPageTables" },
+                values: new object[] { 1, new DateTime(2019, 5, 22, 16, 12, 20, 611, DateTimeKind.Local).AddTicks(8106), true, true, true, "64-bit", true, true, true, true, true, true, true, true, true, true, true, null, true, true, true, 1, "37.5", "37.5", true, true, "LGA-1151", true, new DateTime(2019, 5, 22, 16, 12, 20, 611, DateTimeKind.Local).AddTicks(8398), true });
 
             migrationBuilder.InsertData(
                 table: "CPUDetails",
-                columns: new[] { "CPUDetailId", "EnhancedIntelSpeedStepTechnology", "ExecuteDisableBit", "IdleStates", "InstructionSet", "Intel64", "IntelAESNewInstructions", "IntelBootGuard", "IntelHyperThreadingTechnology", "IntelIdentityProtectionTechnology", "IntelMemoryProtectionExtensions", "IntelOSGuard", "IntelOptaneMemorySupported", "IntelSoftwareGuardExtentions", "IntelTSXNI", "IntelTrustedExecutionTechnology", "IntelTurboBoostTechnology1", "IntelTurboBoostTechnology2", "IntelVirtualizationTechnologyforDirectIO", "IntelvProPlatformEligibility", "MaxCPUs", "PackageSizeX", "PackageSizeY", "SecureKey", "StableImagePlatformProgram", "TJunction", "ThermalMonitoringTechnologies", "VTxWithExtendedPageTables" },
-                values: new object[] { 2, null, null, null, "64-bit", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, "58.5", "75.4", null, null, "TR4", null, null });
+                columns: new[] { "CPUDetailId", "CreatedAt", "EnhancedIntelSpeedStepTechnology", "ExecuteDisableBit", "IdleStates", "InstructionSet", "Intel64", "IntelAESNewInstructions", "IntelBootGuard", "IntelHyperThreadingTechnology", "IntelIdentityProtectionTechnology", "IntelMemoryProtectionExtensions", "IntelOSGuard", "IntelOptaneMemorySupported", "IntelSoftwareGuardExtentions", "IntelTSXNI", "IntelTrustedExecutionTechnology", "IntelTurboBoostTechnology1", "IntelTurboBoostTechnology2", "IntelVirtualizationTechnologyforDirectIO", "IntelvProPlatformEligibility", "MaxCPUs", "PackageSizeX", "PackageSizeY", "SecureKey", "StableImagePlatformProgram", "TJunction", "ThermalMonitoringTechnologies", "UpdatedAt", "VTxWithExtendedPageTables" },
+                values: new object[] { 2, new DateTime(2019, 5, 22, 16, 12, 20, 611, DateTimeKind.Local).AddTicks(8773), null, null, null, "64-bit", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, "58.5", "75.4", null, null, "TR4", null, new DateTime(2019, 5, 22, 16, 12, 20, 611, DateTimeKind.Local).AddTicks(8785), null });
 
             migrationBuilder.CreateIndex(
                 name: "IX_CPUs_ChipsetId",

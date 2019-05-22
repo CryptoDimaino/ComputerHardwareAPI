@@ -43,6 +43,11 @@ namespace ComputerHardware.Models
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public bool? IntelBootGuard {get;set;}
         [JsonIgnore]
+        public DateTime CreatedAt {get;set;}
+        [JsonIgnore]
+        public DateTime UpdatedAt {get;set;}
+
+        [JsonIgnore]
         public List<CPU> CPUs {get;set;}
     }
 }
