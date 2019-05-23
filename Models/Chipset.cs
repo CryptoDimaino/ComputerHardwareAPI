@@ -12,17 +12,29 @@ namespace ComputerHardware.Models
         [Key]
         [JsonIgnore]
         public int ChipsetId {get;set;}
+        [Required]
         public string Name {get;set;}
+        [Required]
         public string LaunchDate {get;set;}
+        [Required]
         public string BusSpeed {get;set;}
+        [Required]
         public string TDP {get;set;}
+        [Required]
         public bool Overclock {get;set;}
+        [Required]
         public string DIMMsPerChannel {get;set;}
+        [Required]
         public string DisplaysSupported {get;set;}
+        [Required]
         public string PCIExpressRevision {get;set;}
+        [Required]
         public string MaxPCIExpressLanes {get;set;}
+        [Required]
         public int NumberOfUSBPorts {get;set;}
+        [Required]
         public string USBRevision {get;set;}
+        [Required]
         public int MaxSata3Ports {get;set;}
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public bool? IntelOptaneMemorySupported {get;set;}
@@ -43,10 +55,11 @@ namespace ComputerHardware.Models
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public bool? IntelBootGuard {get;set;}
         [JsonIgnore]
+        [Required]
         public DateTime CreatedAt {get;set;}
         [JsonIgnore]
+        [Required]
         public DateTime UpdatedAt {get;set;}
-
         [JsonIgnore]
         public List<CPU> CPUs {get;set;}
     }

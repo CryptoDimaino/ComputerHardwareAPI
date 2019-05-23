@@ -12,10 +12,13 @@ namespace ComputerHardware.Models
         [Key]
         [JsonIgnore]
         public int SocketId {get;set;}
+        [Required]
         public string Name {get;set;}
         [JsonIgnore]
+        [Required]
         public DateTime CreatedAt {get;set;}
         [JsonIgnore]
+        [Required]
         public DateTime UpdatedAt {get;set;}
         [JsonIgnore]
         public List<CPU> CPUs {get;set;}

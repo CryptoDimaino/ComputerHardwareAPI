@@ -12,11 +12,15 @@ namespace ComputerHardware.Models
         [Key]
         [JsonIgnore]
         public int ManufacturerId {get;set;}
+        [Required]
         public string Name {get;set;}
+        [Required]
         public string URL {get;set;}
         [JsonIgnore]
+        [Required]
         public DateTime CreatedAt {get;set;}
         [JsonIgnore]
+        [Required]
         public DateTime UpdatedAt {get;set;}
         //[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public List<CPU> CPUs {get;set;}

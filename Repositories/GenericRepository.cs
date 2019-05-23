@@ -48,5 +48,10 @@ namespace ComputerHardware.Repositories
         {
             await this._Context.SaveChangesAsync();
         }
+
+        public async Task<int> CountAsync()
+        {
+            return await this._Context.Set<T>().CountAsync();
+        }
     }
 }

@@ -29,15 +29,14 @@ namespace ComputerHardware.Controllers
         [HttpGet]
         public async Task<IActionResult> GetChipsets()
         {
-            
             try
             {
-                _Logger.LogInfo($"{SomeHelper.LogInfos(ControllerContext)} Querying all Chipsets!");
+                _Logger.LogInfo(ControllerContext, $"Querying all Chipsets!");
                 return Ok(await _IChipsetRepository.GetAllChipsetsAsync());
             }
             catch(Exception ex)
             {
-                _Logger.LogError($"{SomeHelper.LogInfos(ControllerContext)} Error Message: {ex.Message}");
+                _Logger.LogError(ControllerContext, $"Error Message: {ex.Message}");
                 return StatusCode(500, "Internal Server Error.");
             }
         }
@@ -48,12 +47,12 @@ namespace ComputerHardware.Controllers
         {
             try
             {
-                _Logger.LogInfo($"{SomeHelper.LogInfos(ControllerContext)} Querying Chipset with the id: {id}");
+                _Logger.LogInfo(ControllerContext, $"Querying Chipset with the id: {id}");
                 return Ok(await _IChipsetRepository.GetChipsetByIDAsync(id));
             }
             catch(Exception ex)
             {
-                _Logger.LogError($"{SomeHelper.LogInfos(ControllerContext)} Error Message: {ex.Message}");
+                _Logger.LogError(ControllerContext, $"Error Message: {ex.Message}");
                 return StatusCode(500, "Internal Server Error.");
             }
         }
@@ -62,10 +61,11 @@ namespace ComputerHardware.Controllers
         [HttpPost("CreateNewChipset")]
         public async Task<IActionResult> CreateNewChipset()
         {
+            int ChipsetCountPlus1 = await _IChipsetRepository.CountNumberOfChipsetsAsync() + 2;
             Chipset NewChipset = new Chipset()
                 {
-                    ChipsetId = 3,
-                    Name = "nghtry",
+                    ChipsetId = ChipsetCountPlus1,
+                    Name = $"SomeChipset{ChipsetCountPlus1}",
                     LaunchDate = "Q2'17",
                     BusSpeed = "TBD",
                     TDP = "TBD",
@@ -89,13 +89,13 @@ namespace ComputerHardware.Controllers
                 };
             try
             {
-                _Logger.LogInfo($"{SomeHelper.LogInfos(ControllerContext)} Name: {NewChipset.Name}");
+                _Logger.LogInfo(ControllerContext, $"Name: {NewChipset.Name}");
                 await _IChipsetRepository.CreateChipsetAsync(NewChipset);
                 return NoContent();
             }   
             catch(Exception ex)
             {
-                _Logger.LogError($"{SomeHelper.LogInfos(ControllerContext)} Error Message: {ex.Message}");
+                _Logger.LogError(ControllerContext, $"Error Message: {ex.Message}");
                 return StatusCode(500, "Internal Server Error.");
             }
         }
@@ -109,10 +109,10 @@ namespace ComputerHardware.Controllers
                 Chipset ChipsetToUpdate = await _IChipsetRepository.GetChipsetByIDAsync(id);
                 if(ChipsetToUpdate == null)
                 {
-                    _Logger.LogError($"{SomeHelper.LogInfos(ControllerContext)} Error Message: Chipset with the id: {id} is not in the database.");
+                    _Logger.LogError(ControllerContext, $"Error Message: Chipset with the id: {id} is not in the database.");
                     return StatusCode(500, "Internal Server Error.");
                 }
-                _Logger.LogInfo($"{SomeHelper.LogInfos(ControllerContext)} Chipset with the id: {id} has been updated.");
+                _Logger.LogInfo(ControllerContext, $"Chipset with the id: {id} has been updated.");
                 
                 ChipsetToUpdate.UpdatedAt = DateTime.Now;
                 await _IChipsetRepository.UpdateChipsetAsync(ChipsetToUpdate);
@@ -120,31 +120,48 @@ namespace ComputerHardware.Controllers
             }
             catch(Exception ex)
             {
-                _Logger.LogError($"{SomeHelper.LogInfos(ControllerContext)} Error Message: {ex.Message}");
+                _Logger.LogError(ControllerContext, $"Error Message: {ex.Message}");
                 return StatusCode(500, "Internal Server Error.");
             }
         }
 
-        // DELETE api/Chipset/delete/id
+        // DELETE api/chipset/delete/id
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> DeleteChipset(int id)
         {
-            _Logger.LogWarn($"Deleting a chipset will delete all CPU information under it and also delete all cpudetails.");
+            _Logger.LogWarn(ControllerContext, $"Deleting a chipset will delete all CPU information under it and also delete all cpudetails.");
             try
             {
                 Chipset ChipsetToDelete = await _IChipsetRepository.GetChipsetByIDAsync(id);
                 if(ChipsetToDelete == null)
                 {
-                    _Logger.LogError($"{SomeHelper.LogInfos(ControllerContext)} Chipset with id: {id}, hasn't been found in db.");
+                    _Logger.LogError(ControllerContext, $"Chipset with id: {id}, hasn't been found in database.");
                     return NotFound();
                 }
-                _Logger.LogInfo($"{SomeHelper.LogInfos(ControllerContext)} Chipset with id: {id} has been deleted.");
+                _Logger.LogInfo(ControllerContext, $"Chipset with id: {id} has been deleted.");
                 await _IChipsetRepository.DeleteChipsetAsync(ChipsetToDelete);
                 return NoContent();
             }
             catch(Exception ex)
             {
-                _Logger.LogError($"{SomeHelper.LogInfos(ControllerContext)} Error Message: {ex.Message}");
+                _Logger.LogError(ControllerContext, $"Error Message: {ex.Message}");
+                return StatusCode(500, "Internal Server Error.");
+            }
+        }
+
+        // GET api/chipset/count
+        [HttpGet("count")]
+        public async Task<IActionResult> GetNumberOfChipsets()
+        {
+            try
+            {
+                int NumOfChipsets = await _IChipsetRepository.CountNumberOfChipsetsAsync();
+                _Logger.LogInfo(ControllerContext, $"There are {NumOfChipsets} chipsets!");
+                return Ok(NumOfChipsets);
+            }
+            catch(Exception ex)
+            {
+                _Logger.LogError(ControllerContext, $"Error Message: {ex.Message}");
                 return StatusCode(500, "Internal Server Error.");
             }
         }

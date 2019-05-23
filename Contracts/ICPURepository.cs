@@ -14,8 +14,10 @@ namespace ComputerHardware.Contracts
     {
         Task<IEnumerable<CPU>> GetAllCPUsAsync();
         Task<CPU> GetCPUByIDAsync(int CPUId);
+        Task<CPU> GetCPUByNameAsync(string Name);
         Task CreateCPUAsync(CPU NewCPU);
         Task UpdateCPUAsync(CPU CPUToUpdate);
         Task DeleteCPUAsync(CPU CPUToDelete);
+        Task<int> CountNumberOfCPUsAsync();
     }
 }

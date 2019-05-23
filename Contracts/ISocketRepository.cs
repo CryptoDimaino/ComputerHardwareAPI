@@ -17,5 +17,6 @@ namespace ComputerHardware.Contracts
         Task CreateSocketAsync(Socket NewSocket);
         Task UpdateSocketAsync(Socket SocketToUpdate);
         Task DeleteSocketAsync(Socket SocketToDelete);
+        Task<int> CountNumberOfSocketsAsync();
     }
 }

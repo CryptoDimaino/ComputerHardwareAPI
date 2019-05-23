@@ -27,12 +27,12 @@ namespace ComputerHardware.Controllers
         {
             try
             {
-                _Logger.LogInfo("Querying all Manufacturers!");
+                // _Logger.LogInfo("Querying all Manufacturers!");
                 return Ok(_Context.Manufacturers.Include(a => a.CPUs).ToList());
             }
             catch(Exception ex)
             {
-                _Logger.LogError($"Something went wrong inside of Controller: Manufacturer. Action: GetManufacturers. With the error message: {ex.Message}");
+                // _Logger.LogError($"Something went wrong inside of Controller: Manufacturer. Action: GetManufacturers. With the error message: {ex.Message}");
                 return StatusCode(500, "Internal Server Error.");
             }
         }
@@ -43,12 +43,12 @@ namespace ComputerHardware.Controllers
         {
             try
             {
-                _Logger.LogInfo($"Querying Manufacturer with the id: {id}");
+                // _Logger.LogInfo($"Querying Manufacturer with the id: {id}");
                 return Ok(_Context.Manufacturers.Include(m => m.CPUs).ThenInclude(c => c.Socket).Include(m => m.CPUs).ThenInclude(c => c.CPUDetail).Include(m => m.CPUs).ThenInclude(c => c.Chipset).FirstOrDefault(m => m.ManufacturerId == id));
             }
             catch(Exception ex)
             {
-                _Logger.LogError($"Something went wrong inside of Controller: Manufacturer. Action: GetManufacturerId. With the error message: {ex.Message}");
+                // _Logger.LogError($"Something went wrong inside of Controller: Manufacturer. Action: GetManufacturerId. With the error message: {ex.Message}");
                 return StatusCode(500, "Internal Server Error.");
             }
         }

@@ -13,9 +13,9 @@ namespace ComputerHardware.Contracts
 {
     public interface ILoggerManager
     {
-        void LogInfo(string message);
-        void LogWarn(string message);
-        void LogDebug(string message);
-        void LogError(string message);
+        void LogInfo(ControllerContext ControllerContext, string Message);
+        void LogWarn(ControllerContext ControllerContext, string Message);
+        void LogDebug(ControllerContext ControllerContext, string Message);
+        void LogError(ControllerContext ControllerContext, string Message);
     }
 }

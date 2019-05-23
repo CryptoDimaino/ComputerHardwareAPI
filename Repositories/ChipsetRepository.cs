@@ -45,5 +45,10 @@ namespace ComputerHardware.Repositories
             Delete(ChipsetToDelete);
             await SaveAsync();
         }
+
+        public async Task<int> CountNumberOfChipsetsAsync()
+        {
+            return await CountAsync();
+        }
     }
 }

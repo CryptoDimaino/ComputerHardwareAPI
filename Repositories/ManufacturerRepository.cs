@@ -45,5 +45,10 @@ namespace ComputerHardware.Repositories
             Delete(ManufacturerToDelete);
             await SaveAsync();
         }
+
+        public async Task<int> CountNumberOfManufacturersAsync()
+        {
+            return await CountAsync();
+        }
     }
 }

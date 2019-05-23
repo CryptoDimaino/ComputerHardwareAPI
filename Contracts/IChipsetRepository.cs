@@ -17,5 +17,6 @@ namespace ComputerHardware.Contracts
         Task CreateChipsetAsync(Chipset NewChipset);
         Task UpdateChipsetAsync(Chipset ChipsetToUpdate);
         Task DeleteChipsetAsync(Chipset ChipsetToDelete);
+        Task<int> CountNumberOfChipsetsAsync();
     }
 }

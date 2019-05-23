@@ -28,6 +28,11 @@ namespace ComputerHardware.Repositories
             return await FindByCondition(c => c.CPUId == CPUId).Include(c => c.Socket).Include(c => c.Manufacturer).Include(c => c.Chipset).Include(c => c.CPUDetail).FirstOrDefaultAsync();
         }
 
+        public async Task<CPU> GetCPUByNameAsync(string Name)
+        {
+            return await FindByCondition(c => c.Name == Name).Include(c => c.Socket).Include(c => c.Manufacturer).Include(c => c.Chipset).Include(c => c.CPUDetail).FirstOrDefaultAsync();
+        }
+
         public async Task CreateCPUAsync(CPU NewCPU)
         {
             Create(NewCPU);
@@ -44,6 +49,11 @@ namespace ComputerHardware.Repositories
         {
             Delete(CPUToDelete);
             await SaveAsync();
+        }
+
+        public async Task<int> CountNumberOfCPUsAsync()
+        {
+            return await CountAsync();
         }
     }
 }

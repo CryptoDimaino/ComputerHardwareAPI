@@ -15,5 +15,6 @@ namespace ComputerHardware.Contracts
         void Update(T Entity);
         void Delete(T Entity);
         Task SaveAsync();
+        Task<int> CountAsync();
     }
 }

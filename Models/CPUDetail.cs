@@ -12,9 +12,13 @@ namespace ComputerHardware.Models
         [ForeignKey("CPU")]
         [JsonIgnore]
         public int CPUDetailId {get;set;}
+        [Required]
         public string TJunction {get;set;}
+        [Required]
         public int MaxCPUs {get;set;}
+        [Required]
         public string PackageSizeX {get;set;}
+        [Required]
         public string PackageSizeY {get;set;}
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public bool? IntelOptaneMemorySupported {get;set;}
@@ -62,8 +66,10 @@ namespace ComputerHardware.Models
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public bool? IntelBootGuard {get;set;}
         [JsonIgnore]
+        [Required]
         public DateTime CreatedAt {get;set;}
         [JsonIgnore]
+        [Required]
         public DateTime UpdatedAt {get;set;}
 
 

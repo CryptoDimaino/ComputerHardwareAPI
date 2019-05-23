@@ -17,5 +17,6 @@ namespace ComputerHardware.Contracts
         Task CreateManufacturerAsync(Manufacturer NewManufacturer);
         Task UpdateManufacturerAsync(Manufacturer ManufacturerToUpdate);
         Task DeleteManufacturerAsync(Manufacturer ManufacturerToDelete);
+        Task<int> CountNumberOfManufacturersAsync();
     }
 }

@@ -17,27 +17,26 @@ namespace ComputerHardware.Services
 
         public LoggerManager()
         {
-
         }
 
-        public void LogDebug(string message)
+        public void LogDebug(ControllerContext ControllerContext, string Message)
         {
-            logger.Debug(message);
+            logger.Debug($"Controller: {ControllerContext.RouteData.Values["controller"].ToString()} - Method: {ControllerContext.RouteData.Values["action"].ToString()} - {Message}");
         }
  
-        public void LogError(string message)
+        public void LogError(ControllerContext ControllerContext, string Message)
         {
-            logger.Error(message);
+            logger.Error($"Controller: {ControllerContext.RouteData.Values["controller"].ToString()} - Method: {ControllerContext.RouteData.Values["action"].ToString()} - {Message}");
         }
  
-        public void LogInfo(string message)
+        public void LogInfo(ControllerContext ControllerContext, string Message)
         {
-            logger.Info(message);
+            logger.Info($"Controller: {ControllerContext.RouteData.Values["controller"].ToString()} - Method: {ControllerContext.RouteData.Values["action"].ToString()} - {Message}");
         }
  
-        public void LogWarn(string message)
+        public void LogWarn(ControllerContext ControllerContext, string Message)
         {
-            logger.Warn(message);
+            logger.Warn($"Controller: {ControllerContext.RouteData.Values["controller"].ToString()} - Method: {ControllerContext.RouteData.Values["action"].ToString()} - {Message}");
         }
     }
 }

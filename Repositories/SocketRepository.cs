@@ -45,5 +45,10 @@ namespace ComputerHardware.Repositories
             Delete(SocketToDelete);
             await SaveAsync();
         }
+
+        public async Task<int> CountNumberOfSocketsAsync()
+        {
+            return await CountAsync();
+        }
     }
 }
