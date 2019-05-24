@@ -18,8 +18,22 @@ namespace ComputerHardware.Models
             base.OnModelCreating(ModelBuilder);
 
             ModelBuilder.Entity<Manufacturer>().HasData(
-                new Manufacturer() {ManufacturerId = 1, Name = "Intel Corporation", URL = "https://www.intel.com/content/www/us/en/homepage.html"},
-                new Manufacturer() {ManufacturerId = 2, Name = "Advanced Micro Devices, Inc", URL = "https://www.amd.com/en"}
+                new Manufacturer() 
+                {
+                    ManufacturerId = 1, 
+                    Name = "Intel Corporation", 
+                    URL = "https://www.intel.com/content/www/us/en/homepage.html", 
+                    CreatedAt = DateTime.Now, 
+                    UpdatedAt = DateTime.Now
+                },
+                new Manufacturer() 
+                {
+                    ManufacturerId = 2, 
+                    Name = "Advanced Micro Devices, Inc", 
+                    URL = "https://www.amd.com/en",
+                    CreatedAt = DateTime.Now, 
+                    UpdatedAt = DateTime.Now
+                }
             );
 
             ModelBuilder.Entity<Socket>().HasData(

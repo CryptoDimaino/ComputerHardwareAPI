@@ -24,9 +24,9 @@ namespace ComputerHardware.Models
         public DateTime UpdatedAt {get;set;}
         //[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public List<CPU> CPUs {get;set;}
-        public bool ShouldSerializeCPUs()
-        {
-            return CPUs.Count > 0;
-        }
+        // public bool ShouldSerializeCPUs()
+        // {
+        //     return CPUs.Count > 0;
+        // }
     }
 }

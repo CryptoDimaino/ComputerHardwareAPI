@@ -28,6 +28,11 @@ namespace ComputerHardware.Repositories
             return await FindByCondition(c => c.ChipsetId == ChipsetId).FirstOrDefaultAsync();
         }
 
+        public async Task<Chipset> GetChipsetByNameAsync(string Name)
+        {
+            return await FindByCondition(c => c.Name == Name).FirstOrDefaultAsync();
+        }
+
         public async Task CreateChipsetAsync(Chipset NewChipset)
         {
             Create(NewChipset);

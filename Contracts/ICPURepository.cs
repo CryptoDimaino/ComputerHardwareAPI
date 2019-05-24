@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using ComputerHardware.DTOs;
 
 namespace ComputerHardware.Contracts
 {
@@ -19,5 +20,7 @@ namespace ComputerHardware.Contracts
         Task UpdateCPUAsync(CPU CPUToUpdate);
         Task DeleteCPUAsync(CPU CPUToDelete);
         Task<int> CountNumberOfCPUsAsync();
+
+        // Task<CPUDTO> GetAllCPUDTOsAsync();
     }
 }

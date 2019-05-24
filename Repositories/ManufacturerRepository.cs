@@ -28,6 +28,11 @@ namespace ComputerHardware.Repositories
             return await FindByCondition(c => c.ManufacturerId == ManufacturerId).FirstOrDefaultAsync();
         }
 
+        public async Task<Manufacturer> GetManufacturerByNameAsync(string Name)
+        {
+            return await FindByCondition(m => m.Name == Name).FirstOrDefaultAsync();
+        }
+
         public async Task CreateManufacturerAsync(Manufacturer NewManufacturer)
         {
             Create(NewManufacturer);

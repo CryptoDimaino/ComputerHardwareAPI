@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using ComputerHardware.DTOs;
 
 
 namespace ComputerHardware.Repositories
@@ -26,6 +27,11 @@ namespace ComputerHardware.Repositories
         public async Task<Socket> GetSocketByIDAsync(int SocketId)
         {
             return await FindByCondition(c => c.SocketId == SocketId).FirstOrDefaultAsync();
+        }
+
+        public async Task<Socket> GetSocketByNameAsync(string Name)
+        {
+            return await FindByCondition(s => s.Name == Name).FirstOrDefaultAsync();
         }
 
         public async Task CreateSocketAsync(Socket NewSocket)
@@ -49,6 +55,18 @@ namespace ComputerHardware.Repositories
         public async Task<int> CountNumberOfSocketsAsync()
         {
             return await CountAsync();
+        }
+
+
+        public async Task<IEnumerable<SocketDTO>> GetAllSocketDTOsAsync()
+        {
+            
+            return await GetAll().Select(s => new SocketDTO
+            {
+                SocketId = s.SocketId,
+                Name = s.Name,
+                UpdatedAt = s.UpdatedAt
+            }).ToListAsync();
         }
     }
 }

@@ -32,13 +32,15 @@ namespace ComputerHardware.Migrations
 
                     b.Property<bool>("ECC");
 
-                    b.Property<string>("Family");
+                    b.Property<string>("Family")
+                        .IsRequired();
 
                     b.Property<string>("IntegratedGraphics");
 
                     b.Property<double>("L3Cache");
 
-                    b.Property<string>("Lithography");
+                    b.Property<string>("Lithography")
+                        .IsRequired();
 
                     b.Property<double>("MSRPPrice");
 
@@ -48,19 +50,24 @@ namespace ComputerHardware.Migrations
 
                     b.Property<string>("MaxGPUClockRate");
 
-                    b.Property<string>("MaxMemory");
+                    b.Property<string>("MaxMemory")
+                        .IsRequired();
 
-                    b.Property<string>("MaxMemoryChannel");
+                    b.Property<string>("MaxMemoryChannel")
+                        .IsRequired();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.Property<double>("PCIExpressLanes");
 
-                    b.Property<string>("ReleaseDate");
+                    b.Property<string>("ReleaseDate")
+                        .IsRequired();
 
                     b.Property<bool>("SMT");
 
-                    b.Property<string>("Series");
+                    b.Property<string>("Series")
+                        .IsRequired();
 
                     b.Property<int>("SocketId");
 
@@ -68,7 +75,8 @@ namespace ComputerHardware.Migrations
 
                     b.Property<int>("ThreadCount");
 
-                    b.Property<string>("Type");
+                    b.Property<string>("Type")
+                        .IsRequired();
 
                     b.Property<DateTime>("UpdatedAt");
 
@@ -89,7 +97,7 @@ namespace ComputerHardware.Migrations
                             BaseFrequency = 3.6000000000000001,
                             ChipsetId = 1,
                             CoreCount = 8,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 612, DateTimeKind.Local).AddTicks(6087),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 20, DateTimeKind.Local).AddTicks(568),
                             ECC = false,
                             Family = "Coffee Lake",
                             IntegratedGraphics = "",
@@ -110,7 +118,7 @@ namespace ComputerHardware.Migrations
                             TDP = 95,
                             ThreadCount = 16,
                             Type = "Desktop",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 612, DateTimeKind.Local).AddTicks(6399)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 20, DateTimeKind.Local).AddTicks(841)
                         },
                         new
                         {
@@ -118,7 +126,7 @@ namespace ComputerHardware.Migrations
                             BaseFrequency = 3.3999999999999999,
                             ChipsetId = 2,
                             CoreCount = 16,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 612, DateTimeKind.Local).AddTicks(6768),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 20, DateTimeKind.Local).AddTicks(1162),
                             ECC = true,
                             Family = "Zen",
                             L3Cache = 32.0,
@@ -137,7 +145,7 @@ namespace ComputerHardware.Migrations
                             TDP = 180,
                             ThreadCount = 32,
                             Type = "Desktop",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 612, DateTimeKind.Local).AddTicks(6781)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 20, DateTimeKind.Local).AddTicks(1172)
                         });
                 });
 
@@ -187,15 +195,18 @@ namespace ComputerHardware.Migrations
 
                     b.Property<int>("MaxCPUs");
 
-                    b.Property<string>("PackageSizeX");
+                    b.Property<string>("PackageSizeX")
+                        .IsRequired();
 
-                    b.Property<string>("PackageSizeY");
+                    b.Property<string>("PackageSizeY")
+                        .IsRequired();
 
                     b.Property<bool?>("SecureKey");
 
                     b.Property<bool?>("StableImagePlatformProgram");
 
-                    b.Property<string>("TJunction");
+                    b.Property<string>("TJunction")
+                        .IsRequired();
 
                     b.Property<bool?>("ThermalMonitoringTechnologies");
 
@@ -211,7 +222,7 @@ namespace ComputerHardware.Migrations
                         new
                         {
                             CPUDetailId = 1,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 611, DateTimeKind.Local).AddTicks(8106),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 19, DateTimeKind.Local).AddTicks(3365),
                             EnhancedIntelSpeedStepTechnology = true,
                             ExecuteDisableBit = true,
                             IdleStates = true,
@@ -237,19 +248,19 @@ namespace ComputerHardware.Migrations
                             StableImagePlatformProgram = true,
                             TJunction = "LGA-1151",
                             ThermalMonitoringTechnologies = true,
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 611, DateTimeKind.Local).AddTicks(8398),
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 19, DateTimeKind.Local).AddTicks(3619),
                             VTxWithExtendedPageTables = true
                         },
                         new
                         {
                             CPUDetailId = 2,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 611, DateTimeKind.Local).AddTicks(8773),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 19, DateTimeKind.Local).AddTicks(3946),
                             InstructionSet = "64-bit",
                             MaxCPUs = 1,
                             PackageSizeX = "58.5",
                             PackageSizeY = "75.4",
                             TJunction = "TR4",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 611, DateTimeKind.Local).AddTicks(8785)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 19, DateTimeKind.Local).AddTicks(3955)
                         });
                 });
 
@@ -258,13 +269,16 @@ namespace ComputerHardware.Migrations
                     b.Property<int>("ChipsetId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("BusSpeed");
+                    b.Property<string>("BusSpeed")
+                        .IsRequired();
 
                     b.Property<DateTime>("CreatedAt");
 
-                    b.Property<string>("DIMMsPerChannel");
+                    b.Property<string>("DIMMsPerChannel")
+                        .IsRequired();
 
-                    b.Property<string>("DisplaysSupported");
+                    b.Property<string>("DisplaysSupported")
+                        .IsRequired();
 
                     b.Property<bool?>("IntelBootGuard");
 
@@ -284,23 +298,29 @@ namespace ComputerHardware.Migrations
 
                     b.Property<bool?>("IntelvProPlatformEligibility");
 
-                    b.Property<string>("LaunchDate");
+                    b.Property<string>("LaunchDate")
+                        .IsRequired();
 
-                    b.Property<string>("MaxPCIExpressLanes");
+                    b.Property<string>("MaxPCIExpressLanes")
+                        .IsRequired();
 
                     b.Property<int>("MaxSata3Ports");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.Property<int>("NumberOfUSBPorts");
 
                     b.Property<bool>("Overclock");
 
-                    b.Property<string>("PCIExpressRevision");
+                    b.Property<string>("PCIExpressRevision")
+                        .IsRequired();
 
-                    b.Property<string>("TDP");
+                    b.Property<string>("TDP")
+                        .IsRequired();
 
-                    b.Property<string>("USBRevision");
+                    b.Property<string>("USBRevision")
+                        .IsRequired();
 
                     b.Property<DateTime>("UpdatedAt");
 
@@ -313,7 +333,7 @@ namespace ComputerHardware.Migrations
                         {
                             ChipsetId = 1,
                             BusSpeed = "8",
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(8979),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 18, DateTimeKind.Local).AddTicks(5106),
                             DIMMsPerChannel = "2",
                             DisplaysSupported = "3",
                             IntelBootGuard = true,
@@ -334,13 +354,13 @@ namespace ComputerHardware.Migrations
                             PCIExpressRevision = "3.0",
                             TDP = "6",
                             USBRevision = "3.1",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(9315)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 18, DateTimeKind.Local).AddTicks(5552)
                         },
                         new
                         {
                             ChipsetId = 2,
                             BusSpeed = "TBD",
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(9678),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 18, DateTimeKind.Local).AddTicks(5923),
                             DIMMsPerChannel = "4",
                             DisplaysSupported = "0",
                             LaunchDate = "Q2'17",
@@ -352,7 +372,7 @@ namespace ComputerHardware.Migrations
                             PCIExpressRevision = "3.0",
                             TDP = "TBD",
                             USBRevision = "3.1",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(9691)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 18, DateTimeKind.Local).AddTicks(5933)
                         });
                 });
 
@@ -363,9 +383,11 @@ namespace ComputerHardware.Migrations
 
                     b.Property<DateTime>("CreatedAt");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
-                    b.Property<string>("URL");
+                    b.Property<string>("URL")
+                        .IsRequired();
 
                     b.Property<DateTime>("UpdatedAt");
 
@@ -377,18 +399,18 @@ namespace ComputerHardware.Migrations
                         new
                         {
                             ManufacturerId = 1,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(5133),
                             Name = "Intel Corporation",
                             URL = "https://www.intel.com/content/www/us/en/homepage.html",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(5470)
                         },
                         new
                         {
                             ManufacturerId = 2,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(5758),
                             Name = "Advanced Micro Devices, Inc",
                             URL = "https://www.amd.com/en",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(5768)
                         });
                 });
 
@@ -399,7 +421,8 @@ namespace ComputerHardware.Migrations
 
                     b.Property<DateTime>("CreatedAt");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.Property<DateTime>("UpdatedAt");
 
@@ -411,114 +434,114 @@ namespace ComputerHardware.Migrations
                         new
                         {
                             SocketId = 1,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1192),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(8825),
                             Name = "LGA-1151",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1571)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9126)
                         },
                         new
                         {
                             SocketId = 2,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1907),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9401),
                             Name = "LGA-1150",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1921)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9410)
                         },
                         new
                         {
                             SocketId = 3,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1927),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9416),
                             Name = "TR4",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1930)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9419)
                         },
                         new
                         {
                             SocketId = 4,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1933),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9422),
                             Name = "SP3",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1936)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9424)
                         },
                         new
                         {
                             SocketId = 5,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1939),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9427),
                             Name = "AM4",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1942)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9429)
                         },
                         new
                         {
                             SocketId = 6,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1944),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9432),
                             Name = "LGA-2066",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1947)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9434)
                         },
                         new
                         {
                             SocketId = 7,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1950),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9437),
                             Name = "LGA-3647",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1952)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9439)
                         },
                         new
                         {
                             SocketId = 8,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1955),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9442),
                             Name = "AM1",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1957)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9445)
                         },
                         new
                         {
                             SocketId = 9,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1960),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9447),
                             Name = "FM2+",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1963)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9450)
                         },
                         new
                         {
                             SocketId = 10,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1965),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9452),
                             Name = "FM2",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1968)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9455)
                         },
                         new
                         {
                             SocketId = 11,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1971),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9457),
                             Name = "LGA-1356",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1973)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9460)
                         },
                         new
                         {
                             SocketId = 12,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1976),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9463),
                             Name = "AM3+",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1978)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9465)
                         },
                         new
                         {
                             SocketId = 13,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1981),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9468),
                             Name = "FS1",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1983)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9470)
                         },
                         new
                         {
                             SocketId = 14,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1986),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9473),
                             Name = "FM1",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1989)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9475)
                         },
                         new
                         {
                             SocketId = 15,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1991),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9478),
                             Name = "2011",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1994)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9480)
                         },
                         new
                         {
                             SocketId = 16,
-                            CreatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1997),
+                            CreatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9483),
                             Name = "TR4",
-                            UpdatedAt = new DateTime(2019, 5, 22, 16, 12, 20, 610, DateTimeKind.Local).AddTicks(1999)
+                            UpdatedAt = new DateTime(2019, 5, 24, 10, 21, 18, 17, DateTimeKind.Local).AddTicks(9485)
                         });
                 });
 

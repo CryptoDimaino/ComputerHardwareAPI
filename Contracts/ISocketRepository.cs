@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using ComputerHardware.DTOs;
 
 namespace ComputerHardware.Contracts
 {
@@ -14,9 +15,12 @@ namespace ComputerHardware.Contracts
     {
         Task<IEnumerable<Socket>> GetAllSocketsAsync();
         Task<Socket> GetSocketByIDAsync(int SocketId);
+        Task<Socket> GetSocketByNameAsync(string Name);
         Task CreateSocketAsync(Socket NewSocket);
         Task UpdateSocketAsync(Socket SocketToUpdate);
         Task DeleteSocketAsync(Socket SocketToDelete);
         Task<int> CountNumberOfSocketsAsync();
+
+        Task<IEnumerable<SocketDTO>> GetAllSocketDTOsAsync();
     }
 }

@@ -8,6 +8,7 @@ using ComputerHardware.Models;
 using Microsoft.EntityFrameworkCore;
 using ComputerHardware.Repositories;
 using ComputerHardware.Helpers;
+using ComputerHardware.DTOs;
 
 namespace ComputerHardware.Controllers
 {
@@ -17,10 +18,24 @@ namespace ComputerHardware.Controllers
     {
         private readonly ILoggerManager _Logger;
         private readonly ISocketRepository _ISocketRepository;
-        public SocketController(ILoggerManager Logger, ISocketRepository ISocketRepository)
+        private readonly Context _Context;
+        public SocketController(ILoggerManager Logger, ISocketRepository ISocketRepository, Context Context)
         {
             _Logger = Logger;
             _ISocketRepository = ISocketRepository;
+            _Context = Context;
+        }
+
+        //TEST 
+        [HttpGet("Test")]
+        public async Task<IActionResult> Test()
+        {
+            // return Ok(_Context.Sockets.Select(a => new SocketDTO() {
+            //     SocketId = a.SocketId,
+            //     Name = a.Name,
+            //     UpdatedAt = a.UpdatedAt
+            // }));
+            return Ok(await _ISocketRepository.GetAllSocketDTOsAsync());
         }
 
         // GET api/socket
@@ -47,6 +62,22 @@ namespace ComputerHardware.Controllers
             {
                 _Logger.LogInfo(ControllerContext, $"Querying Socket with the id: {id}");
                 return Ok(await _ISocketRepository.GetSocketByIDAsync(id));
+            }
+            catch(Exception ex)
+            {
+                _Logger.LogError(ControllerContext, $"Error Message: {ex.Message}");
+                return StatusCode(500, "Internal Server Error.");
+            }
+        }
+
+        // GET api/socket/{name}
+        [HttpGet("name/{name}")]
+        public async Task<IActionResult> GetSocketByName(string Name)
+        {
+            try
+            {
+                _Logger.LogInfo(ControllerContext, $"Querying for the Socket with the name: {Name}");
+                return Ok(await _ISocketRepository.GetSocketByNameAsync(Name));
             }
             catch(Exception ex)
             {

@@ -14,6 +14,7 @@ namespace ComputerHardware.Contracts
     {
         Task<IEnumerable<Manufacturer>> GetAllManufacturersAsync();
         Task<Manufacturer> GetManufacturerByIDAsync(int ManufacturerId);
+        Task<Manufacturer> GetManufacturerByNameAsync(string Name);
         Task CreateManufacturerAsync(Manufacturer NewManufacturer);
         Task UpdateManufacturerAsync(Manufacturer ManufacturerToUpdate);
         Task DeleteManufacturerAsync(Manufacturer ManufacturerToDelete);

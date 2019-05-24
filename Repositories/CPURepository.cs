@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using ComputerHardware.DTOs;
 
 
 namespace ComputerHardware.Repositories
@@ -55,5 +56,10 @@ namespace ComputerHardware.Repositories
         {
             return await CountAsync();
         }
+
+        // public async Task<CPUDTO> GetAllCPUDTOsAsync()
+        // {
+        //     return await GetAll().ToListAsync();
+        // }
     }
 }

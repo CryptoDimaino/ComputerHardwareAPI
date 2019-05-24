@@ -57,6 +57,23 @@ namespace ComputerHardware.Controllers
             }
         }
 
+        // GET api/chipset/{name}
+        [HttpGet("name/{name}")]
+        public async Task<IActionResult> GetChipsetByName(string Name)
+        {
+            try
+            {
+                _Logger.LogInfo(ControllerContext, $"Querying for the Chipset with the name: {Name}");
+                return Ok(await _IChipsetRepository.GetChipsetByNameAsync(Name));
+            }
+            catch(Exception ex)
+            {
+                _Logger.LogError(ControllerContext, $"Error Message: {ex.Message}");
+                return StatusCode(500, "Internal Server Error.");
+            }
+        }
+
+
         // POST api/Chipset/CreateNewChipset
         [HttpPost("CreateNewChipset")]
         public async Task<IActionResult> CreateNewChipset()
