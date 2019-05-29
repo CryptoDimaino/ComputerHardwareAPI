@@ -57,9 +57,19 @@ namespace ComputerHardware.Repositories
             return await CountAsync();
         }
 
-        // public async Task<CPUDTO> GetAllCPUDTOsAsync()
-        // {
-        //     return await GetAll().ToListAsync();
-        // }
+        public async Task<IEnumerable<CPUDTO>> GetAllCPUDTOsAsync()
+        {
+            return await GetAll().Select(s => new CPUDTO
+            {
+                CPUId = s.CPUId,
+                Name = s.Name,
+                CoreCount = s.CoreCount,
+                ThreadCount = s.ThreadCount,
+                BaseFrequency = s.BaseFrequency,
+                MaxFrequency = s.MaxFrequency,
+                L3Cache = s.L3Cache,
+                TDP = s.TDP
+            }).ToListAsync();
+        }
     }
 }

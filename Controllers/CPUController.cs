@@ -28,16 +28,7 @@ namespace ComputerHardware.Controllers
         [HttpGet("test")]
         public async Task<IActionResult> Test()
         {
-            return Ok(await _Context.CPUs.Select(a => new CPUDTO {
-                CPUId = a.CPUId,
-                Name = a.Name,
-                CoreCount = a.CoreCount,
-                ThreadCount = a.ThreadCount,
-                BaseFrequency = a.BaseFrequency,
-                MaxFrequency = a.MaxFrequency,
-                L3Cache = a.L3Cache,
-                TDP = a.TDP
-            }).ToListAsync());
+            return Ok(await _ICPURepository.GetAllCPUDTOsAsync());;
         }
 
         // GET api/cpu

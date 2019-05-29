@@ -21,6 +21,6 @@ namespace ComputerHardware.Contracts
         Task DeleteCPUAsync(CPU CPUToDelete);
         Task<int> CountNumberOfCPUsAsync();
 
-        // Task<CPUDTO> GetAllCPUDTOsAsync();
+        Task<IEnumerable<CPUDTO>> GetAllCPUDTOsAsync();
     }
 }

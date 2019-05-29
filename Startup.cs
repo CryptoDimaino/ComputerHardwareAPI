@@ -40,6 +40,15 @@ namespace ComputerHardware
         {
             services.AddDbContext<Context>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+
             services.AddSingleton<ILoggerManager, LoggerManager>();
             //services.AddSingleton<IGenericRepository<>, GenericRepository>();
             services.AddTransient<IChipsetRepository, ChipsetRepository>();
@@ -68,7 +77,7 @@ namespace ComputerHardware
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            app.UseCors("CorsPolicy");
             app.UseHttpsRedirection();
             app.UseMvc();
         }
